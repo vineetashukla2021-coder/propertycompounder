@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropertyCompounder.com — Own the Brand That Defines Property Wealth</title>
+<meta name="description" content="PropertyCompounder.com is a category-defining brand at the intersection of real estate investing, PropTech, REIT platforms, fractional ownership and AI property intelligence. Acquire the brand. Build the future.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --ink:       #0d1117;
+  --ink-80:    #1c2431;
+  --ink-60:    #374151;
+  --ink-40:    #6b7280;
+  --ink-20:    #9ca3af;
+  --rule:      #e5e7eb;
+  --rule-dark: #1f2937;
+  --cream:     #faf9f7;
+  --white:     #ffffff;
+  --gold:      #b5893a;
+  --gold-lt:   #d4a853;
+  --gold-bg:   #fdf8ef;
+  --green:     #1a6b45;
+  --green-lt:  #dcf0e7;
+  --navy:      #0f1e35;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Figtree', system-ui, sans-serif;
+
+  --max: 1160px;
+  --r:   10px;
+  --ease: cubic-bezier(.22,.68,0,1.2);
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+
+/* ═══════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════ */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+.label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold);
+}
+.label::before { content:''; display:block; width:20px; height:1px; background:var(--gold); }
+.rule { width: 40px; height: 2px; background: var(--gold); margin: 0 auto; }
+.rule-left { width: 40px; height: 2px; background: var(--gold); }
+
+/* scroll reveal */
+.reveal { opacity:0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity:1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+#nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 200;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow .3s;
+}
+#nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 40px;
+  height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 1.25rem; font-weight: 700;
+  color: var(--ink); letter-spacing: -.01em;
+}
+.nav-logo em { font-style: normal; color: var(--gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: .82rem; font-weight: 500; color: var(--ink-60);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--navy); color: var(--white);
+  padding: 9px 22px; border-radius: 5px;
+  font-size: .82rem; font-weight: 600;
+  transition: background .2s, transform .15s;
+}
+.nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 40px 80px;
+  position: relative; overflow: hidden;
+}
+/* Subtle grid texture */
+.hero::before {
+  content:'';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(181,137,58,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181,137,58,.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+/* Radial glow */
+.hero::after {
+  content:'';
+  position: absolute; top: -20%; left: 55%;
+  width: 700px; height: 700px;
+  background: radial-gradient(ellipse, rgba(181,137,58,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: var(--max); margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  font-size: .7rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow span { display:block; width:28px; height:1px; background:var(--gold); }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.08; letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: normal; color: var(--gold-lt); }
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,.6);
+  max-width: 500px; line-height: 1.75; margin-bottom: 40px;
+}
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1);
+}
+.hstat-num {
+  font-family: var(--serif); font-size: 2.2rem;
+  font-weight: 700; color: var(--gold-lt); line-height: 1;
+  margin-bottom: 4px;
+}
+.hstat-label { font-size: .75rem; color: rgba(255,255,255,.45); font-weight: 500; letter-spacing: .04em; }
+
+/* ─ Inquiry Card ─ */
+.inquiry-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 36px 32px;
+  box-shadow: 0 32px 80px rgba(0,0,0,.35);
+  position: relative; z-index: 2;
+}
+.card-badge {
+  display: inline-block;
+  background: var(--gold-bg); color: var(--gold);
+  border: 1px solid rgba(181,137,58,.3);
+  border-radius: 4px; padding: 4px 10px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.inquiry-card h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 6px;
+}
+.inquiry-card .sub {
+  font-size: .83rem; color: var(--ink-40); margin-bottom: 22px; line-height: 1.5;
+}
+.field {
+  margin-bottom: 12px;
+}
+.field label {
+  display: block; font-size: .72rem; font-weight: 600;
+  color: var(--ink-60); letter-spacing: .04em; margin-bottom: 5px;
+}
+.field input, .field select, .field textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--rule); border-radius: 6px;
+  font-family: var(--sans); font-size: .87rem; color: var(--ink);
+  background: var(--cream);
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(181,137,58,.12);
+  background: var(--white);
+}
+.field textarea { min-height: 80px; resize: vertical; }
+.field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-primary {
+  width: 100%; padding: 13px;
+  background: var(--navy); color: var(--white);
+  border-radius: 6px; font-size: .9rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background .2s, transform .15s;
+  margin-top: 6px;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+.btn-primary svg { transition: transform .2s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+.form-note { font-size: .72rem; color: var(--ink-20); text-align: center; margin-top: 10px; line-height: 1.5; }
+.form-success {
+  display:none; background: var(--green-lt); border: 1px solid var(--green);
+  border-radius: 8px; padding: 18px; text-align: center;
+  color: var(--green); font-weight: 600; font-size: .9rem; margin-top: 12px;
+}
+
+/* ═══════════════════════════════════════
+   TICKER / TRUST BAR
+═══════════════════════════════════════ */
+.trust-bar {
+  background: var(--ink); border-bottom: 1px solid var(--rule-dark);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; overflow: hidden;
+}
+.ticker-track {
+  display: flex; gap: 48px; white-space: nowrap;
+  animation: ticker 22s linear infinite;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35);
+  letter-spacing: .08em; text-transform: uppercase;
+  flex-shrink: 0;
+}
+.ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink:0; }
+
+/* ═══════════════════════════════════════
+   SECTION COMMON
+═══════════════════════════════════════ */
+section { padding: 96px 40px; }
+.sec-header { text-align: center; margin-bottom: 64px; }
+.sec-header .label { margin-bottom: 16px; }
+.sec-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 600; color: var(--ink);
+  line-height: 1.15; letter-spacing: -.02em; margin-bottom: 16px;
+}
+.sec-header p { font-size: .97rem; color: var(--ink-40); max-width: 560px; margin: 0 auto; line-height: 1.75; }
+
+/* ═══════════════════════════════════════
+   OPPORTUNITY / MARKET
+═══════════════════════════════════════ */
+.sec-opportunity { background: var(--cream); }
+.opp-grid {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.opp-card {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: var(--r); padding: 28px;
+  position: relative; overflow: hidden;
+  transition: box-shadow .25s, transform .25s;
+}
+.opp-card::after {
+  content:''; position: absolute; top:0; left:0; right:0;
+  height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+}
+.opp-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.08); transform: translateY(-3px); }
+.opp-market { font-size: .7rem; font-weight: 700; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.opp-stat { font-family: var(--serif); font-size: 2.4rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+.opp-title { font-weight: 700; font-size: .95rem; color: var(--ink); margin-bottom: 8px; }
+.opp-desc { font-size: .83rem; color: var(--ink-40); line-height: 1.65; }
+.opp-footer { margin-top: 18px; font-size: .75rem; color: var(--gold); font-weight: 600; }
+
+/* ═══════════════════════════════════════
+   WHAT COULD IT BECOME
+═══════════════════════════════════════ */
+.sec-become { background: var(--white); }
+.become-grid {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.become-card {
+  border: 1px solid var(--rule); border-radius: var(--r);
+  padding: 26px 22px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  cursor: default;
+}
+.become-card:hover {
+  border-color: var(--gold); box-shadow: 0 8px 32px rgba(181,137,58,.1);
+  transform: translateY(-4px);
+}
+.become-icon {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: var(--gold-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin-bottom: 16px;
+}
+.become-card h3 { font-size: .92rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.become-card p { font-size: .78rem; color: var(--ink-40); line-height: 1.6; }
+.become-tag {
+  display: inline-block; margin-top: 14px;
+  background: var(--gold-bg); color: var(--gold);
+  border-radius: 20px; padding: 3px 10px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .06em;
+}
+
+/* ═══════════════════════════════════════
+   WHY DOMAINS MATTER
+═══════════════════════════════════════ */
+.sec-why { background: var(--navy); }
+.sec-why .sec-header h2 { color: var(--white); }
+.sec-why .sec-header p { color: rgba(255,255,255,.5); }
+.sec-why .label { color: var(--gold-lt); }
+.why-grid {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--rule-dark);
+  border: 1px solid var(--rule-dark); border-radius: 12px; overflow: hidden;
+}
+.why-cell {
+  background: var(--ink-80); padding: 32px 28px;
+  transition: background .2s;
+}
+.why-cell:hover { background: #1f2d42; }
+.why-num {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 700;
+  color: var(--gold); opacity: .5; line-height: 1; margin-bottom: 12px;
+}
+.why-cell h3 { font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.why-cell p { font-size: .82rem; color: rgba(255,255,255,.45); line-height: 1.65; }
+
+/* ═══════════════════════════════════════
+   SCARCITY
+═══════════════════════════════════════ */
+.sec-scarcity {
+  background: var(--gold-bg);
+  border-top: 1px solid rgba(181,137,58,.2);
+  border-bottom: 1px solid rgba(181,137,58,.2);
+}
+.scarcity-inner {
+  max-width: 820px; margin: 0 auto; text-align: center;
+}
+.scarcity-inner .label { color: var(--gold); margin-bottom: 16px; }
+.scarcity-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600;
+  color: var(--ink); letter-spacing: -.02em; line-height: 1.2;
+  margin-bottom: 24px;
+}
+.scarcity-inner p { font-size: .97rem; color: var(--ink-60); line-height: 1.8; margin-bottom: 16px; }
+.scarcity-facts {
+  display: flex; justify-content: center; gap: 40px;
+  margin-top: 48px; flex-wrap: wrap;
+}
+.sfact {
+  text-align: center;
+}
+.sfact-num {
+  font-family: var(--serif); font-size: 2.6rem; font-weight: 700;
+  color: var(--gold); line-height: 1;
+}
+.sfact-label { font-size: .75rem; color: var(--ink-40); font-weight: 500; margin-top: 6px; }
+
+/* ═══════════════════════════════════════
+   FUTURE VISION
+═══════════════════════════════════════ */
+.sec-vision { background: var(--ink); }
+.vision-inner { max-width: var(--max); margin: 0 auto; }
+.vision-header { margin-bottom: 60px; }
+.vision-header .label { color: var(--gold-lt); margin-bottom: 18px; }
+.vision-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 600;
+  color: var(--white); letter-spacing: -.02em; line-height: 1.15;
+  max-width: 600px;
+}
+.vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--rule-dark); border-radius: 12px; overflow: hidden; }
+.vision-cell {
+  background: #111820; padding: 36px 32px;
+  border-left: 3px solid transparent;
+  transition: border-color .25s, background .25s;
+}
+.vision-cell:hover { border-left-color: var(--gold); background: #161f2a; }
+.vision-cell-icon { font-size: 1.6rem; margin-bottom: 16px; }
+.vision-cell h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+.vision-cell p { font-size: .83rem; color: rgba(255,255,255,.42); line-height: 1.7; }
+
+/* ═══════════════════════════════════════
+   TRUST & PROCESS
+═══════════════════════════════════════ */
+.sec-trust { background: var(--cream); }
+.trust-inner { max-width: var(--max); margin: 0 auto; }
+.trust-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; position: relative;
+}
+.trust-steps::before {
+  content:''; position:absolute; top: 28px; left: 12.5%; right: 12.5%;
+  height: 1px; background: var(--rule);
+}
+.tstep { text-align: center; padding: 0 16px; }
+.tstep-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
+  color: var(--gold); margin: 0 auto 20px;
+  position: relative; z-index: 2; background: var(--cream);
+}
+.tstep h3 { font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.tstep p { font-size: .78rem; color: var(--ink-40); line-height: 1.6; }
+.trust-badges {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap; margin-top: 56px;
+}
+.tbadge {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 8px; padding: 14px 20px;
+  font-size: .82rem; font-weight: 600; color: var(--ink-60);
+}
+.tbadge-icon { font-size: 1.1rem; }
+
+/* ═══════════════════════════════════════
+   SHARE
+═══════════════════════════════════════ */
+.sec-share {
+  background: var(--white);
+  padding: 40px;
+  border-top: 1px solid var(--rule);
+}
+.share-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.share-text h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+.share-text p { font-size: .82rem; color: var(--ink-40); }
+.share-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.sbtn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 18px; border-radius: 6px;
+  font-size: .8rem; font-weight: 600; border: none; cursor: pointer;
+  transition: opacity .2s, transform .15s; text-decoration:none;
+}
+.sbtn:hover { opacity: .85; transform: translateY(-1px); }
+.sbtn-li  { background: #0a66c2; color: #fff; }
+.sbtn-wa  { background: #25d366; color: #fff; }
+.sbtn-em  { background: var(--navy); color: #fff; }
+.sbtn-cp  { background: var(--rule); color: var(--ink); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--ink); padding: 56px 40px 28px;
+}
+.footer-top {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr repeat(3, auto);
+  gap: 60px; padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule-dark);
+  align-items: start;
+}
+.footer-brand .nav-logo { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
+.footer-brand p { font-size: .8rem; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 240px; }
+.footer-col-title { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 14px; }
+.footer-col-links { list-style: none; }
+.footer-col-links li { margin-bottom: 10px; }
+.footer-col-links a { font-size: .82rem; color: rgba(255,255,255,.5); transition: color .2s; }
+.footer-col-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: var(--max); margin: 24px auto 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: .75rem; color: rgba(255,255,255,.25);
+}
+.footer-bottom a { color: rgba(255,255,255,.35); }
+.footer-bottom a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 50px; }
+  .inquiry-card { max-width: 520px; }
+  .opp-grid { grid-template-columns: repeat(2, 1fr); }
+  .become-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .vision-grid { grid-template-columns: 1fr; }
+  .trust-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .trust-steps::before { display: none; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .wrap, section { padding-left: 20px; padding-right: 20px; }
+  .hero { padding: 100px 20px 60px; }
+  .nav-links { display: none; }
+  .nav-inner { padding: 0 20px; }
+  .opp-grid, .become-grid, .why-grid { grid-template-columns: 1fr; }
+  .trust-steps { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+  .field-row { grid-template-columns: 1fr; }
+  .scarcity-facts { gap: 24px; }
+  .share-inner { flex-direction: column; align-items: flex-start; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Property<em>Compounder</em></div>
+    <ul class="nav-links">
+      <li><a href="#opportunity">The Opportunity</a></li>
+      <li><a href="#become">Business Models</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#acquire">Acquire</a></li>
+    </ul>
+    <a href="#acquire" class="nav-cta">Begin Acquisition</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span></span>Category-Defining Brand Asset</div>
+      <h1>Own the brand that <em>defines</em> the future of property wealth creation.</h1>
+      <p class="hero-sub">PropertyCompounder.com sits at the convergence of real estate, intelligent investing, and technology — a domain that doesn't just say what a business does, it declares what the business stands for.</p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">₹65T+</div>
+          <div class="hstat-label">Indian Real Estate Market by 2030</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">$86B</div>
+          <div class="hstat-label">Global PropTech Market Projection</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">1</div>
+          <div class="hstat-label">This domain. One owner. Forever.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inquiry Card -->
+    <div class="inquiry-card" id="acquire">
+      <div class="card-badge">Acquisition Inquiry</div>
+      <h2>Begin the Conversation</h2>
+      <p class="sub">Complete the form below to express acquisition interest. All inquiries are treated with strict confidentiality.</p>
+      <form id="acqForm" onsubmit="handleSubmit(event)">
+        <div class="field-row">
+          <div class="field">
+            <label>Full Name *</label>
+            <input type="text" id="fname" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label>Company / Organisation</label>
+            <input type="text" id="fcompany" placeholder="Acme Capital">
+          </div>
+        </div>
+        <div class="field">
+          <label>Business Email *</label>
+          <input type="email" id="femail" placeholder="jane@company.com" required>
+        </div>
+        <div class="field">
+          <label>Intended Use</label>
+          <select id="fuse">
+            <option value="" disabled selected>Select intended use…</option>
+            <option>PropTech Platform / SaaS</option>
+            <option>REIT or Investment Platform</option>
+            <option>Fractional Ownership Marketplace</option>
+            <option>AI Property Analytics</option>
+            <option>Wealth Management / Advisory</option>
+            <option>Media / Content Brand</option>
+            <option>Domain Investment / Resale</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Budget Range (USD)</label>
+          <select id="fbudget">
+            <option value="" disabled selected>Select budget range…</option>
+            <option>Under $5,000</option>
+            <option>$5,000 – $15,000</option>
+            <option>$15,000 – $50,000</option>
+            <option>$50,000 – $100,000</option>
+            <option>$100,000+</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Message (Optional)</label>
+          <textarea id="fmessage" placeholder="Tell us about your vision for this brand…"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">
+          Submit Acquisition Inquiry
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="fSuccess">
+        ✓ Your inquiry has been received. We will be in touch at <strong id="fSuccessEmail"></strong> within 24 hours.
+      </div>
+      <p class="form-note">🔒 Your details are handled with strict confidentiality. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="trust-bar">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item"><span class="ticker-dot"></span>PropTech</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>REIT Platforms</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Fractional Ownership</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>AI Property Intelligence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Wealth Creation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Property Compounding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Real Estate Analytics</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Alternative Investments</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Data-Driven Investing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Portfolio Intelligence</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>PropTech</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>REIT Platforms</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Fractional Ownership</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>AI Property Intelligence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Wealth Creation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Property Compounding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Real Estate Analytics</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Alternative Investments</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Data-Driven Investing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Portfolio Intelligence</span>
+  </div>
+</div>
+
+<!-- ══════════════════ OPPORTUNITY ══════════════════ -->
+<section class="sec-opportunity" id="opportunity">
+  <div class="sec-header reveal">
+    <div class="label">The Category Opportunity</div>
+    <h2>Five markets converging.<br>One brand to lead them.</h2>
+    <p>PropertyCompounder sits at the intersection of the fastest-growing sectors in global finance and technology. Each market alone is enormous. Together, they define the next decade of wealth creation.</p>
+  </div>
+  <div class="opp-grid">
+    <div class="opp-card reveal reveal-delay-1">
+      <div class="opp-market">Indian Real Estate</div>
+      <div class="opp-stat">₹65T</div>
+      <div class="opp-title">Market size projected by 2030</div>
+      <div class="opp-desc">India's real estate sector is on a generational growth trajectory, driven by urbanisation, rising incomes, and structural demand across residential and commercial segments.</div>
+      <div class="opp-footer">↑ 7x growth in a decade</div>
+    </div>
+    <div class="opp-card reveal reveal-delay-2">
+      <div class="opp-market">Global PropTech</div>
+      <div class="opp-stat">$86B</div>
+      <div class="opp-title">Market size by 2032</div>
+      <div class="opp-desc">Technology is transforming how properties are discovered, transacted, managed, and financed. PropTech companies are capturing unprecedented market share from traditional players.</div>
+      <div class="opp-footer">↑ CAGR of 16.8%</div>
+    </div>
+    <div class="opp-card reveal reveal-delay-3">
+      <div class="opp-market">Fractional Ownership</div>
+      <div class="opp-stat">$9.4B</div>
+      <div class="opp-title">Fractional real estate market by 2027</div>
+      <div class="opp-desc">Democratising property investment is no longer theoretical. Platforms enabling fractional ownership are attracting millions of retail investors into real estate for the first time.</div>
+      <div class="opp-footer">↑ Fastest growing sub-sector</div>
+    </div>
+    <div class="opp-card reveal reveal-delay-1">
+      <div class="opp-market">AI in Property Investing</div>
+      <div class="opp-stat">$4.5B</div>
+      <div class="opp-title">AI real estate market by 2030</div>
+      <div class="opp-desc">Valuation models, predictive analytics, automated underwriting, and intelligent property matching are reshaping the investment decision-making process at institutional and retail level.</div>
+      <div class="opp-footer">↑ CAGR of 34.3%</div>
+    </div>
+    <div class="opp-card reveal reveal-delay-2">
+      <div class="opp-market">Alternative Investments</div>
+      <div class="opp-stat">$23T</div>
+      <div class="opp-title">Global alternative assets by 2026</div>
+      <div class="opp-desc">Investors worldwide are moving beyond public markets. Real assets, including real estate, are the cornerstone of alternative portfolios for family offices, HNIs, and institutional allocators.</div>
+      <div class="opp-footer">↑ Mainstream allocation increasing</div>
+    </div>
+    <div class="opp-card reveal reveal-delay-3">
+      <div class="opp-market">REIT Platforms</div>
+      <div class="opp-stat">$2.5T</div>
+      <div class="opp-title">Global REIT market capitalisation</div>
+      <div class="opp-desc">REITs represent the institutional-grade vehicle for property income. India's REIT market is nascent and expanding rapidly, creating massive opportunity for digital research and platform businesses.</div>
+      <div class="opp-footer">↑ India REIT market just beginning</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHAT COULD IT BECOME ══════════════════ -->
+<section class="sec-become" id="become">
+  <div class="sec-header reveal">
+    <div class="label">Business Model Showcase</div>
+    <h2>What Could PropertyCompounder Become?</h2>
+    <p>The name is not a constraint — it is a canvas. Here are eight compelling directions any ambitious founder, investor, or institution could take this brand.</p>
+  </div>
+  <div class="become-grid">
+    <div class="become-card reveal reveal-delay-1">
+      <div class="become-icon">📊</div>
+      <h3>Property Analytics Platform</h3>
+      <p>A Bloomberg Terminal for Indian real estate — aggregating transaction data, rental yields, micro-market intelligence, and price compounding curves for professional investors.</p>
+      <span class="become-tag">B2B SaaS</span>
+    </div>
+    <div class="become-card reveal reveal-delay-2">
+      <div class="become-icon">🏦</div>
+      <h3>REIT Research Platform</h3>
+      <p>Independent, institutional-grade research on listed and unlisted REITs globally. A Morningstar for property-backed income instruments, starting with India's fast-growing REIT market.</p>
+      <span class="become-tag">Fintech</span>
+    </div>
+    <div class="become-card reveal reveal-delay-3">
+      <div class="become-icon">🏢</div>
+      <h3>Fractional Ownership Marketplace</h3>
+      <p>A curated platform enabling retail and HNI investors to co-own grade-A commercial, residential, and hospitality properties with institutional-level due diligence and governance.</p>
+      <span class="become-tag">Marketplace</span>
+    </div>
+    <div class="become-card reveal reveal-delay-4">
+      <div class="become-icon">🤖</div>
+      <h3>AI Property Advisor</h3>
+      <p>An AI-powered investment advisor that models portfolio-level compounding scenarios, suggests optimal property allocation, and tracks performance against macro indicators in real time.</p>
+      <span class="become-tag">AI / Deep Tech</span>
+    </div>
+    <div class="become-card reveal reveal-delay-1">
+      <div class="become-icon">📈</div>
+      <h3>Real Estate Portfolio Tracker</h3>
+      <p>A wealth intelligence dashboard for property investors to track equity growth, rental compounding, loan-to-value evolution, and portfolio performance across multiple properties and cities.</p>
+      <span class="become-tag">Consumer App</span>
+    </div>
+    <div class="become-card reveal reveal-delay-2">
+      <div class="become-icon">🎓</div>
+      <h3>Property Wealth Academy</h3>
+      <p>A premium education and community platform for the next generation of property investors — from first-time buyers to sophisticated portfolio builders seeking to master compounding through real estate.</p>
+      <span class="become-tag">EdTech / Community</span>
+    </div>
+    <div class="become-card reveal reveal-delay-3">
+      <div class="become-icon">👥</div>
+      <h3>Investor Community Platform</h3>
+      <p>An exclusive membership network connecting serious real estate investors, deal sponsors, and institutional capital — think AngelList, but built entirely for the property compounding thesis.</p>
+      <span class="become-tag">Network / Membership</span>
+    </div>
+    <div class="become-card reveal reveal-delay-4">
+      <div class="become-icon">🔭</div>
+      <h3>Real Estate Intelligence Dashboard</h3>
+      <p>A macro-to-micro property intelligence tool for fund managers, developers, and allocators — tracking market signals, regulatory shifts, construction data, and capital flows across geographies.</p>
+      <span class="become-tag">Enterprise</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHY DOMAINS MATTER ══════════════════ -->
+<section class="sec-why" id="why">
+  <div class="sec-header reveal">
+    <div class="label">Investor Psychology</div>
+    <h2 style="color:var(--white)">Why premium domains<br>create premium businesses.</h2>
+    <p>The founders and investors who understand domain value build category leaders. Here is why PropertyCompounder.com is a strategic asset, not a website address.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-cell">
+      <div class="why-num">01</div>
+      <h3>Instant Brand Recall</h3>
+      <p>Property + Compounder. Two words that need no explanation to any investor or real estate professional. Zero cognitive load. Maximum retention. The brand explains itself in the time it takes to say it.</p>
+    </div>
+    <div class="why-cell">
+      <div class="why-num">02</div>
+      <h3>Built-In Trust Signals</h3>
+      <p>Premium .com domains communicate legitimacy before a single line of copy is read. Sophisticated buyers, institutional partners, and venture investors use domain quality as a proxy for founder ambition.</p>
+    </div>
+    <div class="why-cell">
+      <div class="why-num">03</div>
+      <h3>Lower Customer Acquisition Cost</h3>
+      <p>A memorable, descriptive domain name generates direct traffic, reduces paid acquisition dependency, and improves conversion at every stage of the funnel — compounding marketing ROI from day one.</p>
+    </div>
+    <div class="why-cell">
+      <div class="why-num">04</div>
+      <h3>Structural SEO Advantage</h3>
+      <p>"Property" and "Compounder" are high-intent, high-volume keywords in real estate and investing. The domain carries natural search authority before a single blog post is published.</p>
+    </div>
+    <div class="why-cell">
+      <div class="why-num">05</div>
+      <h3>Investor Perception Premium</h3>
+      <p>In fundraising, branding is valuation. A category-defining name signals to investors that the founder understands brand-building at a foundational level — and that the brand itself is a defensible moat.</p>
+    </div>
+    <div class="why-cell">
+      <div class="why-num">06</div>
+      <h3>Permanent Competitive Barrier</h3>
+      <p>A competitor can replicate your product in months. They cannot replicate PropertyCompounder.com. The domain creates a brand positioning that cannot be out-spent, out-engineered, or copied.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SCARCITY ══════════════════ -->
+<section class="sec-scarcity">
+  <div class="scarcity-inner reveal">
+    <div class="label">One Opportunity</div>
+    <h2>"There will only ever be one PropertyCompounder.com."</h2>
+    <p>Premium domains are not manufactured. They are discovered — once — by a buyer with the vision to recognise what they represent. PropertyCompounder.com will be acquired once, by one party, who will hold a permanent and irreplaceable brand advantage in the property wealth space.</p>
+    <p>Every day this domain remains unacquired is a day a competitor could change the landscape of your market by securing it instead.</p>
+    <div class="scarcity-facts">
+      <div class="sfact">
+        <div class="sfact-num">1</div>
+        <div class="sfact-label">Domain. One owner. Permanently.</div>
+      </div>
+      <div class="sfact">
+        <div class="sfact-num">∞</div>
+        <div class="sfact-label">Brand value potential over time</div>
+      </div>
+      <div class="sfact">
+        <div class="sfact-num">0</div>
+        <div class="sfact-label">Comparable .com alternatives</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FUTURE VISION ══════════════════ -->
+<section class="sec-vision" id="vision">
+  <div class="vision-inner">
+    <div class="vision-header reveal">
+      <div class="label">The Future of Property Wealth</div>
+      <h2>The convergence of property,<br>intelligence, and compounding<br>is already underway.</h2>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-cell reveal reveal-delay-1">
+        <div class="vision-cell-icon">🧠</div>
+        <h3>AI-Driven Property Investing</h3>
+        <p>The next generation of real estate investors will not rely on gut feel and broker relationships. They will use AI to model compounding scenarios, identify micro-market inflection points, and optimise portfolio allocation with institutional precision.</p>
+      </div>
+      <div class="vision-cell reveal reveal-delay-2">
+        <div class="vision-cell-icon">📡</div>
+        <h3>Real Estate Intelligence</h3>
+        <p>Data is becoming the primary asset in property markets. The platforms that aggregate, interpret, and surface actionable intelligence — from satellite imagery to transaction registries — will define the next wave of PropTech value creation.</p>
+      </div>
+      <div class="vision-cell reveal reveal-delay-3">
+        <div class="vision-cell-icon">🔬</div>
+        <h3>Data-Driven Property Decisions</h3>
+        <p>Intuition is being replaced by evidence. Every acquisition, disposition, development, and financing decision in institutional real estate is now data-validated. Retail investors are next — and they need tools built for them.</p>
+      </div>
+      <div class="vision-cell reveal reveal-delay-4">
+        <div class="vision-cell-icon">🧩</div>
+        <h3>Fractional Ownership at Scale</h3>
+        <p>Property wealth is no longer the exclusive domain of the few. Fractional ownership is unlocking real estate as a mainstream asset class for hundreds of millions of investors globally — and the platforms enabling this transition will be among the most valuable businesses of the decade.</p>
+      </div>
+      <div class="vision-cell reveal reveal-delay-1">
+        <div class="vision-cell-icon">⚡</div>
+        <h3>The Compounding Principle</h3>
+        <p>Property has always been humanity's greatest compounder of wealth. Location appreciates. Rental income grows. Equity builds. The brand that captures and communicates this principle — clearly, credibly, and at scale — will earn a permanent position in the minds of investors worldwide.</p>
+      </div>
+      <div class="vision-cell reveal reveal-delay-2">
+        <div class="vision-cell-icon">🌏</div>
+        <h3>India's Property Wealth Moment</h3>
+        <p>India is entering the greatest property wealth creation cycle in its history. Rising urbanisation, a growing professional class, digital-native investors, and regulatory evolution are converging. The platforms and brands that establish themselves now will define the category for a generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TRUST & PROCESS ══════════════════ -->
+<section class="sec-trust">
+  <div class="sec-header reveal">
+    <div class="label">Secure Acquisition Process</div>
+    <h2>A transparent, secure transfer.<br>Exactly as it should be.</h2>
+    <p>Every acquisition is handled with institutional-level care. The process is straightforward, the transaction is secure, and ownership transfers cleanly and verifiably.</p>
+  </div>
+  <div class="trust-inner">
+    <div class="trust-steps">
+      <div class="tstep reveal reveal-delay-1">
+        <div class="tstep-num">1</div>
+        <h3>Submit Inquiry</h3>
+        <p>Complete the acquisition inquiry form. All submissions are handled with strict confidentiality and acknowledged within 24 hours.</p>
+      </div>
+      <div class="tstep reveal reveal-delay-2">
+        <div class="tstep-num">2</div>
+        <h3>Term Agreement</h3>
+        <p>We discuss acquisition terms, intended use, and agree on transaction structure. A formal letter of intent is issued for mutual clarity.</p>
+      </div>
+      <div class="tstep reveal reveal-delay-3">
+        <div class="tstep-num">3</div>
+        <h3>Escrow &amp; Payment</h3>
+        <p>Funds are held securely via Escrow.com or an agreed alternative. Payment is protected until domain transfer is verified and complete.</p>
+      </div>
+      <div class="tstep reveal reveal-delay-4">
+        <div class="tstep-num">4</div>
+        <h3>Domain Transfer</h3>
+        <p>Full domain ownership is transferred to your registrar account. Funds are released upon confirmed receipt. The brand is yours.</p>
+      </div>
+    </div>
+    <div class="trust-badges reveal">
+      <div class="tbadge"><span class="tbadge-icon">🔒</span>Escrow-Protected Transaction</div>
+      <div class="tbadge"><span class="tbadge-icon">✅</span>Verified Ownership Documentation</div>
+      <div class="tbadge"><span class="tbadge-icon">🌐</span>Transfer to Any Registrar</div>
+      <div class="tbadge"><span class="tbadge-icon">🤝</span>Confidential Process</div>
+      <div class="tbadge"><span class="tbadge-icon">⚡</span>Fast Completion Timeline</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SHARE ══════════════════ -->
+<div class="sec-share">
+  <div class="share-inner">
+    <div class="share-text">
+      <h3>Know someone who should see this?</h3>
+      <p>Share this acquisition opportunity with your network.</p>
+    </div>
+    <div class="share-btns">
+      <a class="sbtn sbtn-li" id="sLI" href="#" target="_blank">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Share on LinkedIn
+      </a>
+      <a class="sbtn sbtn-wa" id="sWA" href="#" target="_blank">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a class="sbtn sbtn-em" id="sEM" href="#">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Email
+      </a>
+      <button class="sbtn sbtn-cp" onclick="copyURL(this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Link
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">Property<em style="color:var(--gold)">Compounder</em></div>
+      <p>A category-defining brand asset at the intersection of property wealth, intelligence, and compounding.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Acquisition</div>
+      <ul class="footer-col-links">
+        <li><a href="#acquire">Submit Inquiry</a></li>
+        <li><a href="#why">Why This Domain</a></li>
+        <li><a href="mailto:vineeta.shukla2021@gmail.com">Direct Email</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">The Opportunity</div>
+      <ul class="footer-col-links">
+        <li><a href="#opportunity">Market Size</a></li>
+        <li><a href="#become">Business Models</a></li>
+        <li><a href="#vision">Future Vision</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="mailto:vineeta.shukla2021@gmail.com">vineeta.shukla2021<br>@gmail.com</a></li>
+        <li><a href="#acquire">Confidential Inquiry Form</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>PropertyCompounder.com — Premium Domain Available for Acquisition © 2024</span>
+    <span>All inquiries treated with strict confidentiality · Transfer via Escrow.com</span>
+  </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── Scroll reveal ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── Share links ── */
+const PAGE = window.location.href;
+const TITLE = "PropertyCompounder.com – Premium Domain Acquisition Opportunity";
+const MSG = "PropertyCompounder.com is available for acquisition — a category-defining brand at the intersection of real estate investing, PropTech, fractional ownership & AI property intelligence.\n\n" + PAGE;
+
+document.getElementById('sLI').href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(PAGE);
+document.getElementById('sWA').href = "https://wa.me/?text=" + encodeURIComponent(MSG);
+document.getElementById('sEM').href = "mailto:?subject=" + encodeURIComponent(TITLE) + "&body=" + encodeURIComponent(MSG);
+
+function copyURL(btn) {
+  navigator.clipboard.writeText(PAGE).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ Copied!';
+    btn.style.background = '#dcf0e7';
+    btn.style.color = '#1a6b45';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
+  }).catch(() => prompt("Copy this link:", PAGE));
+}
+
+/* ── Form submission ── */
+function handleSubmit(e) {
+  e.preventDefault();
+  const name    = document.getElementById('fname').value;
+  const company = document.getElementById('fcompany').value;
+  const email   = document.getElementById('femail').value;
+  const use     = document.getElementById('fuse').value;
+  const budget  = document.getElementById('fbudget').value;
+  const msg     = document.getElementById('fmessage').value;
+
+  const subject = encodeURIComponent("Acquisition Inquiry: PropertyCompounder.com");
+  const body = encodeURIComponent(
+    "ACQUISITION INQUIRY — PropertyCompounder.com\n" +
+    "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n" +
+    "Name:           " + name + "\n" +
+    "Company:        " + (company || "—") + "\n" +
+    "Email:          " + email + "\n" +
+    "Intended Use:   " + (use || "—") + "\n" +
+    "Budget Range:   " + (budget || "—") + "\n\n" +
+    "Message:\n" + (msg || "No message provided.")
+  );
+
+  window.location.href = "mailto:vineeta.shukla2021@gmail.com?subject=" + subject + "&body=" + body;
+
+  document.getElementById('acqForm').style.display = 'none';
+  const s = document.getElementById('fSuccess');
+  document.getElementById('fSuccessEmail').textContent = email;
+  s.style.display = 'block';
+}
+</script>
+</body>
+</html>
